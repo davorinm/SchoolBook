@@ -10,10 +10,12 @@ import UIKit
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        // Register services
+        let container = AwesomeDIContainer.shared
+        container.set() { SchoolServiceImpl() as SchoolService }
+        container.set() { APIServiceImpl() as APIService }
+        
         return true
     }
 
